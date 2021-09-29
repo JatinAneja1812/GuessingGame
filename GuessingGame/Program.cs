@@ -1,46 +1,72 @@
-﻿using System;
+﻿// A simple guess the number game. 
+// An exercise I came up with to test my current C# knowledge.
 
+using System;
+using System.Collections.Generic;
+using System.Text;
 namespace GuessingGame
 {
     class Game
     {
-        static int Guess = 0;
-        static int Target = 5;
-        static string Input = "";
-        static Random RandomNumber = new Random();
-
-        public static void Play()
+        static void Main(string[] args)
         {
-            Target = RandomNumber.Next(10) + 1;
-            Console.Write("Guess what number I am thinking of... ");
-            Input = Console.ReadLine();
-            if (int.TryParse(Input, out Guess))
+            while (true)
             {
-                if (Guess == Target)
+                int randomNumber = GenerateNumber(1, 101);
+                int counter = 20;
+                int counter2 = 1;
+                while (true)
                 {
-                    Console.WriteLine("Congratulations! You guessed " + Guess + " and the number I was thinking of was " + Target + ".");
+                    Console.Write(counter+"th attempt : " + "Enter a number between 1 and 100(0 to quit):");
+                    int input = Convert.ToInt32(Console.ReadLine());
+
+                    if (input == 0)
+                        return;
+                    else if (input < randomNumber)
+                    {
+                        Console.WriteLine("Too low, try again.");
+                        --counter;
+                        counter2++;
+                        if (counter < 0)
+                        {
+                            Console.WriteLine("sorry attempts over!! Try again..");
+                            break;
+                        }
+                        continue;
+                    }
+                    else if (input > randomNumber)
+                    {
+                        Console.WriteLine("Too high, try again.");
+                        --counter;
+                        counter2++;
+                        if (counter < 0)
+                        {
+                            Console.WriteLine("sorry attempts over!! Try again..");
+                            break;
+                        }
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("You guessed it! The number was {0}!", randomNumber);
+                        if (counter < 0)
+                        {
+                            Console.WriteLine("sorry attempts over!! Try again..");
+                            break;
+                        }
+                        else
+                            Console.WriteLine("It took you {0} {1}.\n", counter2, counter2 == 1 ? "try" : "tries");
+                        break;
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Too bad. You guessed " + Guess + " and the number I was thinking of was " + Target + ". Try again!");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Please enter a number.");
-                Console.WriteLine("Press enter to continue...");
-                Console.ReadLine();
-                Play();
             }
 
-            Console.ReadKey();
         }
-    }
-    class Program
-    {
-        static void Main()
+        static int GenerateNumber(int min, int max)
         {
-            Game.Play();
+            Random random = new Random();
+            return random.Next(min, max);
         }
     }
 }
+
