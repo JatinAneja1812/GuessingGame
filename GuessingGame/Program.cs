@@ -18,6 +18,7 @@ namespace GuessingGame
                 Console.WriteLine("1. Easy (number range: 1-100 and 20 turns)");
                 Console.WriteLine("2. Medium (number range: 1-500 and 15 turns)");
                 Console.WriteLine("3. Hard (number range: -1000 to +1000 and 7 turns)");
+                Console.WriteLine("4. To Exit");
 
                 int choice = int.Parse(Console.ReadLine());
 
@@ -32,9 +33,10 @@ namespace GuessingGame
                     case 3:
                         counter = Hardlevel();
                         break;
-                    default:
+                    case 4:
                         Console.WriteLine("Thanks For Playing..");
                         break;
+                           
                 }
 
             } while (counter != 0);
@@ -67,7 +69,7 @@ namespace GuessingGame
                         {
                             Console.WriteLine("sorry attempts over!! Try again..");
                             return counter;
-                            break;
+                            
                         }
                         continue;
                     }
@@ -80,7 +82,7 @@ namespace GuessingGame
                         {
                             Console.WriteLine("sorry attempts over!! Try again..");
                             return counter;
-                            break;
+                            
                         }
                         continue;
                     }
@@ -91,11 +93,14 @@ namespace GuessingGame
                         {
                             Console.WriteLine("sorry attempts over!! Try again..");
                             return counter;
-                            break;
+
                         }
                         else
+                        {
                             Console.WriteLine("It took you {0} {1}.\n", counter2, counter2 == 1 ? "try" : "tries");
-                        break;
+                            return counter = -1;
+                        }
+                        
                     }
                 }
             }
@@ -128,7 +133,7 @@ namespace GuessingGame
                         {
                             Console.WriteLine("sorry attempts over!! Try again..");
                             return counter;
-                            break;
+                          
                         }
                         continue;
                     }
@@ -141,7 +146,7 @@ namespace GuessingGame
                         {
                             Console.WriteLine("sorry attempts over!! Try again..");
                             return counter;
-                            break;
+                            
                         }
                         continue;
                     }
@@ -152,11 +157,14 @@ namespace GuessingGame
                         {
                             Console.WriteLine("sorry attempts over!! Try again..");
                             return counter;
-                            break;
+
                         }
                         else
+                        {
                             Console.WriteLine("It took you {0} {1}.\n", counter2, counter2 == 1 ? "try" : "tries");
-                        break;
+                            return counter = -1;
+                        }
+                       
                     }
                 }
             }
@@ -188,7 +196,7 @@ namespace GuessingGame
                         {
                             Console.WriteLine("sorry attempts over!! Try again..");
                             return counter;
-                            break;
+                           
                         }
                         continue;
                     }
@@ -201,7 +209,7 @@ namespace GuessingGame
                         {
                             Console.WriteLine("sorry attempts over!! Try again..");
                             return counter;
-                            break;
+                          
                         }
                         continue;
                     }
@@ -212,11 +220,13 @@ namespace GuessingGame
                         {
                             Console.WriteLine("sorry attempts over!! Try again..");
                             return counter;
-                            break;
                         }
                         else
+                        {
                             Console.WriteLine("It took you {0} {1}.\n", counter2, counter2 == 1 ? "try" : "tries");
-                        break;
+                            return counter = -1;
+                        }
+                        
                     }
                 }
             }
