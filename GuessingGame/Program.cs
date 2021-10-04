@@ -12,6 +12,7 @@ namespace GuessingGame
         static void Main(string[] args)
         {
             int counter = 0;
+            int choice;
             do
             {
                 Console.WriteLine("Select the Level..");
@@ -20,7 +21,7 @@ namespace GuessingGame
                 Console.WriteLine("3. Hard (number range: -1000 to +1000 and 7 turns)");
                 Console.WriteLine("4. To Exit");
 
-                int choice = int.Parse(Console.ReadLine());
+                choice = int.Parse(Console.ReadLine());
 
                 switch (choice)
                 {
@@ -36,15 +37,19 @@ namespace GuessingGame
                     case 4:
                         Console.WriteLine("Thanks For Playing..");
                         break;
+                    default: Console.WriteLine("Choose between 1 - 4");
+                        break;
                            
                 }
-
-            } while (counter != 0);
+                Console.WriteLine("Thanks For Playing..");
+                Console.ReadLine();
+            } while (counter != 0 || choice > 4);
         }
 
+        
         private static int Hardlevel()
         {
-            Console.WriteLine("You have selected Hard Level..");
+            Console.WriteLine("You have selected Hard difficulty...");
             Console.WriteLine("You have just 7 attempts to guess the number in range -1000 - 1000");
             Console.WriteLine("Let the Game Begins...");
 
@@ -59,7 +64,7 @@ namespace GuessingGame
                     int input = Convert.ToInt32(Console.ReadLine());
 
                     if (input == 0)
-                        return 0;
+                        return counter=-1;
                     else if (input < randomNumber)
                     {
                         Console.WriteLine("Too low, try again.");
@@ -108,7 +113,7 @@ namespace GuessingGame
 
         private static int Mediumlevel()
         {
-            Console.WriteLine("You have selected Medium Level..");
+            Console.WriteLine("You have selected Medium difficulty...");
             Console.WriteLine("You have 15 attempts to guess the number in range 1 - 500");
             Console.WriteLine("Let the Game Begins...");
 
@@ -123,7 +128,7 @@ namespace GuessingGame
                     int input = Convert.ToInt32(Console.ReadLine());
 
                     if (input == 0)
-                        return 0 ;
+                        return counter = -1;
                     else if (input < randomNumber)
                     {
                         Console.WriteLine("Too low, try again.");
@@ -172,7 +177,7 @@ namespace GuessingGame
 
         public static int Easylevel()
         {
-            Console.WriteLine("You have selected Easy Level..");
+            Console.WriteLine("You have selected Easy difficulty...");
             Console.WriteLine("You have 20 attempts to guess the number in range 1 - 100");
             Console.WriteLine("Let the Game Begins...");
             while (true)
@@ -186,7 +191,7 @@ namespace GuessingGame
                     int input = Convert.ToInt32(Console.ReadLine());
 
                     if (input == 0)
-                        return 0 ;
+                        return counter = -1;
                     else if (input < randomNumber)
                     {
                         Console.WriteLine("Too low, try again.");
