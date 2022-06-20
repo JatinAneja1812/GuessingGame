@@ -1,2 +1,2 @@
 # GuessingGame
-* It is a Simple Colsole applictation 
+* It is a Simple Console applictation 
